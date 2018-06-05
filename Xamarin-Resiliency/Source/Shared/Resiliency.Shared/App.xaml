@@ -2,10 +2,21 @@
 <prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Autofac;assembly=Prism.Autofac.Forms"
-             x:Class="Resiliency.App">
-	<Application.Resources>
+             x:Class="Resiliency.Shared.App">
+    <Application.Resources>
+        <ResourceDictionary>
 
-		<!-- Application resource dictionary -->
+            <!-- Defining Main Application Colors-->
+            <Color x:Key="MainColor">#20295D</Color>
+            <Color x:Key="BarTextColor">#FFFF</Color>
 
-	</Application.Resources>
+            <!-- Personalizing status bar color -->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{ StaticResource MainColor }"/>
+                <Setter Property="BarTextColor" Value="{ StaticResource BarTextColor }"/>
+            </Style>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
 </prism:PrismApplication>

@@ -2,6 +2,6 @@
 {
     public class Entity
     {
-        public string Id { get; protected set; }
+        public int Id { get; protected set; }
     }
 }

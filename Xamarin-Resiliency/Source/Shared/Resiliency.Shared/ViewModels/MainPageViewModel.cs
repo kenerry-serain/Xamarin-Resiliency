@@ -1,19 +1,12 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Prism.Navigation;
+using Resiliency.Shared.Abstractions;
 
-namespace Resiliency.ViewModels
+namespace Resiliency.Shared.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase
+    public class MainPageViewModel : BaseViewModel
     {
-        public MainPageViewModel(INavigationService navigationService) 
-            : base (navigationService)
+        public MainPageViewModel(IDialogService dialogService, INavigationService navigationService) : base(dialogService, navigationService)
         {
-            Title = "Main Page";
         }
     }
 }

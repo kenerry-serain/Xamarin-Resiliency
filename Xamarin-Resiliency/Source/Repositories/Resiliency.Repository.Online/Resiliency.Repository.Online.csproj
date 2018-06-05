@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Services\Resiliency.Service.SignalR\Resiliency.Service.SignalR.csproj" />
     <ProjectReference Include="..\..\Shared\Resiliency.Domain\Resiliency.Domain.csproj" />
   </ItemGroup>
 

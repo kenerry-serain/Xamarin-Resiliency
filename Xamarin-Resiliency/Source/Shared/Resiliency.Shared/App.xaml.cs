@@ -1,13 +1,21 @@
 ﻿using Prism;
+using Prism.Autofac;
 using Prism.Ioc;
-using Resiliency.ViewModels;
-using Resiliency.Views;
+using Resiliency.Repository.Online.ClientHandler;
+using Resiliency.Repository.Online.Contracts.ClientHandler;
+using Resiliency.Repository.Online.Contracts.Repositories;
+using Resiliency.Repository.Online.Repositories;
+using Resiliency.Service.Online.Contracts.Services;
+using Resiliency.Service.Online.Services;
+using Resiliency.Shared.Abstractions;
+using Resiliency.Shared.Services;
+using Resiliency.Shared.ViewModels;
+using Resiliency.Shared.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Prism.Autofac;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace Resiliency
+namespace Resiliency.Shared
 {
     public partial class App : PrismApplication
     {
@@ -24,13 +32,19 @@ namespace Resiliency
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/AddClientPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<AddClientPage, AddClientPageViewModel>();
+
+            containerRegistry.Register<IDialogService, DialogService>();
+            containerRegistry.Register<IHttpResilientClient, HttpResilientClient>();
+            containerRegistry.Register<IClientServiceOnline, ClientServiceOnline>();
+            containerRegistry.Register<IClientRepositoryOnline, ClientRepositoryOnline>();
         }
     }
 }

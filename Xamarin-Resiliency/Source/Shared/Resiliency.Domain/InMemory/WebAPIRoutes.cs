@@ -2,9 +2,7 @@
 {
     public class WebAPIRoutes
     {
-        public const string ApplicationBaseUrl = "http://demo9397837.mockable.io/";
-
-        public const string AccountAuthenticate = "";
-        public const string RegisterDevice = "";
+        public const string ApplicationBaseUrl = "https://viceriresiliency.azurewebsites.net/api/";
+        public const string RegisterClient = "client";
     }
 }

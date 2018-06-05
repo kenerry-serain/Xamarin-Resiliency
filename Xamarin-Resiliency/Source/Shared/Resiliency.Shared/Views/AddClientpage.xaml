@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Resiliency.Shared.Views.AddClientPage">
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="25, 0, 25, 0">
+            <!--<Entry Placeholder="Nome" Text="{Binding Name}"/>-->
+            <Entry Placeholder="Email" Text="{Binding Email}"/>
+            <Button Text="Wait" Command="{Binding SaveClientWithRetryPolicy}"></Button>
+            <Button Text="Wait And Retry" Command="{Binding SaveClientWithWaitAndRetryPolicyAsyncCommand}"></Button>
+            <Button Text="Retry With Fallback" Command="{Binding SaveClientWithFallbackPolicyAsyncCommand}"></Button>
+            <Button Text="Retry With Circuit Breaker" Command="{Binding SaveClientWithCircuitBreakerAsyncCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
